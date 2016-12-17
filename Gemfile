@@ -8,6 +8,7 @@ gem 'jquery-rails'
 gem 'listen'
 gem 'haml'
 gem 'simple_form'
+gem 'bootstrap-sass'
 group :development, :test do
   gem 'capybara'
   gem 'factory_girl_rails'
