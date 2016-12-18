@@ -3,8 +3,9 @@ class Recipe < ActiveRecord::Base
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
   validates :title, :description, :image, presence: true
 
-  has_many :ingredients, inverse_of: :recipe
-  has_many :directions, inverse_of: :recipe
+  has_many :ingredients, inverse_of: :recipe, dependent: :destroy
+  has_many :directions, inverse_of: :recipe, dependent: :destroy
+  belongs_to :user
 
   accepts_nested_attributes_for :ingredients, reject_if: :all_blank, allow_destroy: true
   accepts_nested_attributes_for :directions, reject_if: :all_blank, allow_destroy: true
